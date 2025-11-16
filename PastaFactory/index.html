@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>파스타팩토리 홈페이지</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <style>
+        @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            padding-top: 60px; /* 메뉴바 높이만큼 패딩 추가 */
+            font-family: "Pretendard Variable", "Apple SD Gothic Neo", "Malgun Gothic", Arial,
+                sans-serif;
+            scroll-behavior: smooth;
+            background: rgba(248, 245, 224, 0.85); /* 전체 배경색 지정 */
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: rgba(248, 245, 224, 0.85);
+            display: flex;
+            align-items: center;
+            z-index: 1000; /* 충분히 높게 설정 */
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.13);
+        }
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0 auto;
+            padding: 0;
+            width: 100%;
+        }
+        .navbar ul li {
+            margin: 0 24px;
+            cursor: pointer;
+            color: #302214; ;
+            font-size: 21px;
+            font-weight: 700;
+            font-family: "Pretendard Variable", sans-serif;
+            display: flex;
+            align-items: center;
+        }
+        .logo-menu {
+            height: 40px;
+        }
+        section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+        .main-bg {
+            background: url("images/img1.png") no-repeat center center/cover;
+        }
+        .intro-bg {
+            background: url("images/img2.png") no-repeat center center/cover;
+            position: relative;
+        }
+        .orgn-bg {
+            background: rgba(248, 245, 224, 0.85);
+            color: #000000;
+            text-shadow: none;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 0;
+        }
+        .orgn-bg .section-content {
+            background: none;
+            box-shadow: none;
+            text-shadow: none;
+            max-width: 700px;
+            text-align: center;
+            color: #000000;
+        }
+        .orgn-bg img {
+            display: block;           /* 인라인이 아닌 블록 요소로 변경 */
+            margin-left: -90px;        
+            margin-right: 40px;
+            margin-top: 1px; 
+            width: 900px;             /* 원하는 너비 고정 */
+            height: auto;             /* 높이는 비율에 맞게 자동 조절 */
+            border-radius: 12px;
+        }
+        /* 기존 섹션 콘텐츠 스타일 (배경 반투명, 그림자 등) */
+        .section-content {
+            background: rgba(30, 30, 30, 0.55);
+            padding: 48px 36px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.23);
+            max-width: 700px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+        }
+        .main-bg .section-content {
+            background: none;
+            box-shadow: none;
+        }
+        .intro-bg .section-content {
+            background: none;
+            box-shadow: none;
+            margin-left: 200px; /* 오른쪽으로 밀기 */
+            text-align: left;
+            max-width: 700px;
+        }
+        .intro-bg .decor-image {
+            position: absolute;
+            top: 80px;
+            right: 265px;
+            width: 250px; /* 확대된 크기 */
+            transform: rotate253deg(-2);
+            z-index: 5;
+            pointer-events: none;
+        }
+        .intro-bg .section-content h2 {
+            font-size: 30px;
+            font-weight: 600;
+            font-family: "Pretendard Variable", sans-serif;
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+            color: #fafaf8;
+            margin-bottom: 20px;
+        }
+        .intro-bg .section-content p {
+            font-size: 16px;
+            font-weight: 400;
+            font-family: "Pretendard Variable", sans-serif;
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+            color: #fafaf8;
+            line-height: 1.7;
+        }
+        /* 메인 타이틀, 서브 타이틀, 설명 글자에 그림자 추가 */
+        .main-title-first {
+            font-size: 46px;
+            font-weight: 700;
+            margin-bottom: 0;
+            font-family: "Pretendard Variable", sans-serif;
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+            color: #fafaf8;
+        }
+        .main-title-second {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: "Pretendard Variable", sans-serif;
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+            color: #fafaf8;
+        }
+        .main-desc {
+            font-size: 20px;
+            font-weight: 500;
+            font-family: "Pretendard Variable", sans-serif;
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+            color: #fafaf8;
+        }
+        @media (max-width: 600px) {
+            .main-title-first {
+                font-size: 32px;
+            }
+            .main-title-second {
+                font-size: 28px;
+            }
+            .main-desc {
+                font-size: 16px;
+            }
+            .section-content {
+                padding: 24px 12px;
+            }
+            .intro-bg .section-content {
+                margin-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    </style>
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: "smooth",
+            });
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li onclick="scrollToSection('main')">
+                <img src="images/logo2.png" alt="홈 로고" class="logo-menu" />
+            </li>
+            <li onclick="scrollToSection('intro')">기업소개</li>
+            <li onclick="scrollToSection('orgn')">조직도</li>
+        </ul>
+    </nav>
+
+    <section id="main" class="main-bg">
+        <div class="section-content">
+            <div class="main-title-first">파스타팩토리,</div>
+            <div class="main-title-second">정통 이탈리아식 파스타 면의 장인</div>
+            <div class="main-desc">
+                최고의 원재료와 엄격한 품질 관리로 맛과 건강을 선사합니다.
+            </div>
+        </div>
+    </section>
+
+    <section id="intro" class="intro-bg">
+        <img src="images/img3.png" alt="데코 이미지" class="decor-image" />
+        <div class="section-content">
+            <h2>글로벌 식품 기업, 파스타 팩토리</h2>
+            <p>
+                파스타팩토리는 정통 이탈리아식 파스타 면을 전문으로 생산하는 식품 제조기업입니다.<br />
+                엄선된 원재료와 위생적인 생산 공정을 통해 최상의 식감을 자랑하는 파스타 면을 제공합니다.<br />
+                끊임없는 연구와 혁신으로 다양한 소비자의 취향에 맞는 제품을 개발하며,<br />
+                건강하고 맛있는 식문화를 선도하는 기업으로 성장하고 있습니다.<br />
+            </p>
+        </div>
+    </section>
+
+    <section id="orgn" class="orgn-bg">
+        <div class="section-content">
+            <img src="images/orgn.png" alt="조직도 이미지" />
+        </div>
+    </section>
+</body>
+</html>
