@@ -11,7 +11,7 @@
         html {
             margin: 0;
             padding: 0;
-            padding-top: 60px; /* 메뉴바 높이만큼 패딩 추가 */
+            padding-top: 60px;
             font-family: "Pretendard Variable", "Apple SD Gothic Neo", "Malgun Gothic", Arial,
                 sans-serif;
             scroll-behavior: smooth;
@@ -26,7 +26,7 @@
             background: rgba(248, 245, 224, 0.85);
             display: flex;
             align-items: center;
-            z-index: 1000; /* 충분히 높게 설정 */
+            z-index: 1000;
             box-shadow: 0 1px 6px rgba(0, 0, 0, 0.13);
         }
         .navbar ul {
@@ -85,15 +85,14 @@
             color: #000000;
         }
         .orgn-bg img {
-            display: block;           /* 인라인이 아닌 블록 요소로 변경 */
+            display: block;         
             margin-left: -90px;        
             margin-right: 40px;
             margin-top: 1px; 
-            width: 900px;             /* 원하는 너비 고정 */
-            height: auto;             /* 높이는 비율에 맞게 자동 조절 */
+            width: 900px;            
+            height: auto;          
             border-radius: 12px;
         }
-        /* 기존 섹션 콘텐츠 스타일 (배경 반투명, 그림자 등) */
         .section-content {
             background: rgba(30, 30, 30, 0.55);
             padding: 48px 36px;
@@ -112,15 +111,15 @@
         .intro-bg .section-content {
             background: none;
             box-shadow: none;
-            margin-left: 200px; /* 오른쪽으로 밀기 */
+            margin-left: 300px; /* 오른쪽으로 밀기 */
             text-align: left;
             max-width: 700px;
         }
         .intro-bg .decor-image {
             position: absolute;
-            top: 80px;
-            right: 265px;
-            width: 250px; /* 확대된 크기 */
+            top: 120px;
+            right: 250px;
+            width: 200px; /* 확대된 크기 */
             transform: rotate253deg(-2);
             z-index: 5;
             pointer-events: none;
@@ -141,7 +140,6 @@
             color: #fafaf8;
             line-height: 1.7;
         }
-        /* 메인 타이틀, 서브 타이틀, 설명 글자에 그림자 추가 */
         .main-title-first {
             font-size: 46px;
             font-weight: 700;
